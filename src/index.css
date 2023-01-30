@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  position: relative;
+  margin: 0;
+}
+
+
+
+
+#root {
+  height: 100%;
+  display: flex;
+}

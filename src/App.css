@@ -1,0 +1,8 @@
+.content {
+  background-color: rgb(241,246,246);
+}
+
+.content__header {
+  color: rgb(3,4,94);
+  font-weight: 800;
+}

@@ -1,0 +1,12 @@
+th {
+    color: rgb(31,113,114);
+    text-align: left;
+}
+
+.add-course {
+    background-color: rgb(3,103,100);
+}
+
+.clear-all {
+    background-color: rgb(214,34,70);
+}
