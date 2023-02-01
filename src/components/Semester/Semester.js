@@ -13,7 +13,7 @@ function Semester({ title }) {
                     <tr>
                         <th>Course Name</th>
                         <th>Grade</th>
-                        <th>Credits/Units</th>
+                        <th>Credits</th>
                     </tr>
                 </thead>
                 <tbody>
