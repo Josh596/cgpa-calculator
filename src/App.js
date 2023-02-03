@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Semester from './components/Semester/Semester.js';
 import SemesterButton from './components/SemesterButton';
@@ -11,8 +11,35 @@ import { CourseObject } from './utils';
 
 function App() {
 
-  const [semesters, setSemesters] = useState([{ courses: [new CourseObject("", 0, 5)], }])
-  const [activeSemesterID, setActiveSemester] = useState(0)
+  const [semesters, setSemesters] = useState([])
+  const [activeSemesterID, setActiveSemester] = useState(0);
+
+  const localStorageKey = 'results';
+
+
+  useEffect(() => {
+    let results = localStorage.getItem(localStorageKey)
+    if (results !== null) { 
+      results = JSON.parse(results)
+
+    }
+    else if (results === null || results.length < 0) {
+      results = [{ courses: [new CourseObject("", 0, 5)], }]
+    } 
+      
+    setSemesters(results)
+    
+  }, [])
+
+
+  useEffect(() => {
+    localStorage.setItem(localStorageKey, JSON.stringify(semesters));
+  }, [semesters]);
+
+
+  
+
+
 
   const addCourse = (semesterIndex, course) => {
     const newSemesters = [...semesters];
@@ -26,7 +53,7 @@ function App() {
 
   const addSemester = () => {
     const newSemesters = [...semesters]
-    newSemesters.push({ courses: [] });
+    newSemesters.push({ courses: [ new CourseObject("", 0, 5)] });
     setSemesters(newSemesters);
 
     setActiveSemester(newSemesters.length - 1)
@@ -51,7 +78,7 @@ function App() {
     const newSemesters = [...semesters];
     let semester = newSemesters[semesterIndex];
 
-    semester.courses[courseIndex].unit = unit;
+    semester.courses[courseIndex].unit = parseInt(unit);
 
     setSemesters(newSemesters)
   }
@@ -88,10 +115,10 @@ function App() {
 
 
   const handleDeleteSemester = (semesterIndex) => {
-    // if (semesters.length === 1){
-    //   handleClearCourses(semesterIndex);
-    //   return
-    // }
+    if (semesters.length === 1){
+      handleClearCourses(semesterIndex);
+      return
+    }
     const newSemesters = [...semesters];
     newSemesters.splice(semesterIndex, 1)
 
@@ -159,7 +186,6 @@ function App() {
       </div>
       {/* Calculator */}
       <div className="flex flex-col bg-white grow p-3">
-        {console.log(semesters, 'jwjjrj')}
         {semesters.length > 0 &&
           <Semester
             courses={semesters[activeSemesterID].courses}

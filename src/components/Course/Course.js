@@ -20,8 +20,8 @@ function Course({ course, handleUnitChange, handleGradeChange, handleDeleteCours
                     <option value={0}>F</option>
                 </select>
             </td>
-
-            <td><input className='w-16' placeholder='E.g 5' step={1} min={0} defaultValue={course?.unit} type="number" onInput={(e) => handleUnitChange(e.target.value)} /></td>
+            {console.log(course.unit, 'Cours unt')}
+            <td><input className='w-16' placeholder='E.g 5' step={1} min={0} value={course?.unit} type="number" onInput={(e) => handleUnitChange(e.target.value)} /></td>
             <td><button onClick={handleDeleteCourse}><BsFillTrashFill /></button></td>
         </tr>
     )
