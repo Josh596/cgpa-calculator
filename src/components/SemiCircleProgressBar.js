@@ -15,7 +15,7 @@ function SemiCircleProgressBar({ value }) {
                     transform: "rotate(-108deg)",
                 },
                 path: { stroke: "#7D52E9", strokeLinecap: "round", strokeWidth: 12 },
-                trail: { stroke: "rgba(255,255,255, 0.4)", strokeLinecap: "round",},
+                trail: { stroke: "rgba(128,128,200, 0.4)", strokeLinecap: "round",},
             }}
         >
             <div style={{ fontSize: 24, marginTop: -30, textAlign:'center' }}>

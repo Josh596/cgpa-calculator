@@ -20,16 +20,16 @@ function App() {
 
   useEffect(() => {
     let results = localStorage.getItem(localStorageKey)
-    if (results !== null) { 
+    if (results !== null) {
       results = JSON.parse(results)
 
     }
     else if (results === null || results.length < 0) {
       results = [{ courses: [new CourseObject("", 0, 5)], }]
-    } 
-      
+    }
+
     setSemesters(results)
-    
+
   }, [])
 
 
@@ -38,7 +38,7 @@ function App() {
   }, [semesters]);
 
 
-  
+
 
 
 
@@ -54,7 +54,7 @@ function App() {
 
   const addSemester = () => {
     const newSemesters = [...semesters]
-    newSemesters.push({ courses: [ new CourseObject("", 0, 5)] });
+    newSemesters.push({ courses: [new CourseObject("", 0, 5)] });
     setSemesters(newSemesters);
 
     setActiveSemester(newSemesters.length - 1)
@@ -116,7 +116,7 @@ function App() {
 
 
   const handleDeleteSemester = (semesterIndex) => {
-    if (semesters.length === 1){
+    if (semesters.length === 1) {
       handleClearCourses(semesterIndex);
       return
     }
@@ -164,13 +164,12 @@ function App() {
       <span className='content__header mb-2 border-b-4 border-indigo-500 self-start pb-3'>GPA CALCULATOR</span>
 
       {/* Dialup section */}
-      <div className='flex flex-col border-b-2  pb-3'>
+      <div className='flex border-b-2  pb-3'>
         <div className='w-52  ml-auto mr-auto'>
-        <SemiCircleProgressBar value={results.CGPA}/>
- 
-          
+          <SemiCircleProgressBar value={results.CGPA} />
+
         </div>
-        <div className='self-end flex flex-col'>
+        <div className='flex flex-col'>
           <span className='mb-4'> <span>Units Total: {results.totalUnits}</span> </span>
 
           <button className='bg-slate-800 p-3 rounded text-white'>View Analysis</button>
@@ -178,15 +177,13 @@ function App() {
       </div>
 
       {/* Semesters picker */}
-      <div>
-        <div className='flex'>
-          <div className='flex gap-2'>
+      <div className='flex whitespace-nowrap flex-wrap'>
+        <div className='flex gap-2 flex-wrap'>
           {semesters.map((semester, index) => {
             return <SemesterButton key={index} id={index} active={checkIfSemesterActive(index)} onClick={() => setActiveSemester(index)} handleDeleteSemester={() => handleDeleteSemester(index)} />
           })}
-          </div>
-          <button className='ml-auto rounded border p-2 bg-black text-white' onClick={addSemester}>Add Semester + </button>
         </div>
+        <button className='ml-auto rounded border p-2 bg-black text-white' onClick={addSemester}>Add Semester + </button>
       </div>
       {/* Calculator */}
       <div className="flex flex-col bg-white grow p-3">
