@@ -1,5 +1,5 @@
 import React from 'react'
-import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 
 
 function SemiCircleProgressBar({ value }) {
