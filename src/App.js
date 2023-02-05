@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Semester from './components/Semester/Semester.js';
 import SemesterButton from './components/SemesterButton';
+import SemiCircleProgressBar from './components/SemiCircleProgressBar';
 import { CourseObject } from './utils';
 
 
@@ -163,9 +164,11 @@ function App() {
       <span className='content__header mb-2 border-b-4 border-indigo-500 self-start pb-3'>GPA CALCULATOR</span>
 
       {/* Dialup section */}
-      <div className='flex border-b-2  pb-3'>
-        <div className='mr-auto'>
-          {results.CGPA || "0"} / 5
+      <div className='flex flex-col border-b-2  pb-3'>
+        <div className='w-52  ml-auto mr-auto'>
+        <SemiCircleProgressBar value={results.CGPA}/>
+ 
+          
         </div>
         <div className='self-end flex flex-col'>
           <span className='mb-4'> <span>Units Total: {results.totalUnits}</span> </span>
@@ -175,12 +178,13 @@ function App() {
       </div>
 
       {/* Semesters picker */}
-      <div className=''>
+      <div>
         <div className='flex'>
+          <div className='flex gap-2'>
           {semesters.map((semester, index) => {
             return <SemesterButton key={index} id={index} active={checkIfSemesterActive(index)} onClick={() => setActiveSemester(index)} handleDeleteSemester={() => handleDeleteSemester(index)} />
           })}
-
+          </div>
           <button className='ml-auto rounded border p-2 bg-black text-white' onClick={addSemester}>Add Semester + </button>
         </div>
       </div>
