@@ -1,10 +1,11 @@
 
 import { useState, useEffect } from 'react';
 import './App.css';
+import Graph from './components/Graph';
 import Semester from './components/Semester/Semester.js';
 import SemesterButton from './components/SemesterButton';
 import SemiCircleProgressBar from './components/SemiCircleProgressBar';
-import { CourseObject } from './utils';
+import { CourseObject, calculateCGPA } from './utils';
 
 
 
@@ -131,32 +132,16 @@ function App() {
 
   }
 
-
-  const calculateGPA = (semesters) => {
-    let totalUnits = 0;
-    let totalGrades = 0;
-
-    semesters.forEach(semester => {
-      semester.courses.forEach(course => {
-        const unit = parseInt(course.unit);
-        const grade = parseInt(course.grade);
-
-        totalUnits += unit;
-        totalGrades += (unit * grade);
-      });
-    });
-
-
-    let CGPA = (totalGrades / totalUnits).toFixed(2)
-    return {
-      CGPA: isNaN(CGPA) ? 0 : CGPA,
-      totalUnits: totalUnits
-    };
+  const handleViewAnalysis = () => {
+    const element = document.getElementById('details-section');
+    if (element) {
+      // 👇 Will scroll smoothly to the top of the next section
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
 
-
-  const results = calculateGPA(semesters);
+  const results = calculateCGPA(semesters);
 
   return (
     <div className='content flex flex-col grow p-3 px-7 gap-1'>
@@ -172,7 +157,7 @@ function App() {
         <div className='flex flex-col'>
           <span className='mb-4'> <span>Units Total: {results.totalUnits}</span> </span>
 
-          <button className='bg-slate-800 p-3 rounded text-white'>View Analysis</button>
+          <button className='bg-slate-800 p-3 rounded text-white' onClick={handleViewAnalysis}>View Analysis</button>
         </div>
       </div>
 
@@ -197,8 +182,14 @@ function App() {
             handleDeleteCourse={handleDeleteCourse} />
         }
         {/* Semester data */}
-
+        {/* Analysis section - Graphs */}
+        <div id='details-section' className=''>
+          <Graph semesters={semesters} />
+        </div>
       </div>
+
+
+
     </div>
 
 
