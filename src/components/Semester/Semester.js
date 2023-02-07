@@ -43,10 +43,12 @@ function Semester(props) {
                     </tr>
                 </thead>
                 <tbody>
+                    {console.log(props.courses)}
                     {props.courses.map((course, index) => {
                         return <Course
                             key={index} id={index}
                             course={course}
+                            handleCourseTitleChange={(title) => props.handleCourseTitleChange(props.id, index, title)}
                             handleUnitChange={(unit) => props.handleUnitChange(props.id, index, unit)}
                             handleGradeChange={(grade) => props.handleGradeChange(props.id, index, grade)}
                             handleDeleteCourse={() => props.handleDeleteCourse(props.id, index)} />

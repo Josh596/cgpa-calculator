@@ -85,6 +85,16 @@ function App() {
     setSemesters(newSemesters)
   }
 
+
+  const handleCourseTitleChange = (semesterIndex, courseIndex, title) => {
+    const newSemesters = [...semesters];
+    let semester = newSemesters[semesterIndex];
+
+    semester.courses[courseIndex].title = title;
+
+    setSemesters(newSemesters)
+  }
+
   const handleGradeChange = (semesterIndex, courseIndex, grade) => {
     const newSemesters = [...semesters];
     let semester = newSemesters[semesterIndex];
@@ -178,6 +188,7 @@ function App() {
             id={activeSemesterID} addCourse={addCourse}
             handleGradeChange={handleGradeChange}
             handleUnitChange={handleUnitChange}
+            handleCourseTitleChange={handleCourseTitleChange}
             handleClearCourses={() => handleClearCourses(activeSemesterID)}
             handleDeleteCourse={handleDeleteCourse} />
         }

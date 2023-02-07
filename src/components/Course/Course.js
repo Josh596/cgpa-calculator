@@ -2,13 +2,11 @@ import React from 'react'
 import './Course.css'
 import { BsFillTrashFill } from 'react-icons/bs'
 
-function Course({ course, handleUnitChange, handleGradeChange, handleDeleteCourse }) {
-
-
+function Course({ course, handleUnitChange, handleGradeChange, handleDeleteCourse, handleCourseTitleChange }) {
     return (
         <tr>
             {/* Course Title */}
-            <td className='pr-3'><input className="course-title w-full" placeholder={"E.g GEG 111"} defaultValue={course?.title} /></td>
+            <td className='pr-3'><input className="course-title w-full uppercase" placeholder={"E.g GEG 111"} style={{color: "#7DA09E"}} value={course?.title} onChange={(e) => handleCourseTitleChange(e.target.value)}/></td>
             {/* Grade, dropdown */}
             <td className='pr-3'>
                 <select className='w-16 text-center' value={course?.grade} onChange={(e) => handleGradeChange(e.target.value)}>
