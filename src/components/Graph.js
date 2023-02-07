@@ -70,13 +70,13 @@ function Graph({ semesters }) {
         labels: semesters.map((semester, index) => `Semester ${index+1}`),
         datasets: [
             {
-                label: 'CGPA at every semester',
+                label: 'GPA per semester',
                 data: gpa_per_semester,
                 borderColor: 'rgb(255, 99, 132)',
                 
             },
             {
-                label: 'GPA per semester',
+                label: 'CGPA at every semester',
                 data: cgpa_at_semester,
                 borderColor: 'rgb(53, 162, 235)',
             }
