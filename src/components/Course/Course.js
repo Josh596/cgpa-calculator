@@ -6,7 +6,7 @@ function Course({ course, handleUnitChange, handleGradeChange, handleDeleteCours
     return (
         <tr>
             {/* Course Title */}
-            <td className='pr-3'><input className="course-title w-full uppercase" placeholder={"E.g GEG 111"} style={{color: "#7DA09E"}} value={course?.title} onChange={(e) => handleCourseTitleChange(e.target.value)}/></td>
+            <td className='pr-3'><input className="course-title w-full uppercase" placeholder={"E.g GEG 111"} value={course?.title} onChange={(e) => handleCourseTitleChange(e.target.value)}/></td>
             {/* Grade, dropdown */}
             <td className='pr-3'>
                 <select className='w-16 text-center' value={course?.grade} onChange={(e) => handleGradeChange(e.target.value)}>

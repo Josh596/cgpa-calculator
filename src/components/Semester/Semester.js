@@ -43,7 +43,6 @@ function Semester(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {console.log(props.courses)}
                     {props.courses.map((course, index) => {
                         return <Course
                             key={index} id={index}
