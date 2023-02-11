@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "CGPA Calculator",
+  "name": "5 point CGPA Calculator",
   "icons": [
     {
       "src": "favicon.ico",

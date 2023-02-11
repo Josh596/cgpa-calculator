@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/cgpa-calculator/static/css/main.789b178a.css",
-    "main.js": "/cgpa-calculator/static/js/main.966fd238.js",
+    "main.css": "/cgpa-calculator/static/css/main.453ff985.css",
+    "main.js": "/cgpa-calculator/static/js/main.c5b047a6.js",
+    "service-worker.js": "/cgpa-calculator/service-worker.js",
     "index.html": "/cgpa-calculator/index.html",
-    "main.789b178a.css.map": "/cgpa-calculator/static/css/main.789b178a.css.map",
-    "main.966fd238.js.map": "/cgpa-calculator/static/js/main.966fd238.js.map"
+    "main.453ff985.css.map": "/cgpa-calculator/static/css/main.453ff985.css.map",
+    "main.c5b047a6.js.map": "/cgpa-calculator/static/js/main.c5b047a6.js.map"
   },
   "entrypoints": [
-    "static/css/main.789b178a.css",
-    "static/js/main.966fd238.js"
+    "static/css/main.453ff985.css",
+    "static/js/main.c5b047a6.js"
   ]
 }
