@@ -19,7 +19,7 @@ function Footer() {
 
             </div>
             <div>
-                Source code for this project is available <a className='underline' target='_blank' href='https://github.com/Josh596/cgpa-calculator'>here</a>.
+                Source code for this project is available <a className='underline' target='_blank' rel="noreferrer" href='https://github.com/Josh596/cgpa-calculator'>here</a>.
             </div>
         </footer>
     )
