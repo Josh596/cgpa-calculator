@@ -135,7 +135,13 @@ function App() {
     const newSemesters = [...semesters];
     newSemesters.splice(semesterIndex, 1)
 
-    if (semesterIndex === activeSemesterID) {
+    /* BUG */
+    /* if (semesterIndex === activeSemesterID) {
+      setActiveSemester(Math.max(activeSemesterID - 1, 0))
+    } */
+
+    /* BUG FIX */
+    if (semesterIndex <= activeSemesterID) {
       setActiveSemester(Math.max(activeSemesterID - 1, 0))
     }
     setSemesters(newSemesters);
